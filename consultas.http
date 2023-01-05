@@ -1,0 +1,22 @@
+###
+POST http://localhost:9000/api/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nom_compl":"Juan Carlos Rodriguez Garcia",
+    "nom_user":"jc_12",
+    "edad":51,
+    "correo":"jccorreo@gmail.com",
+    "contrasena":"12345"
+}
+
+###
+GET  http://localhost:9000/api/usuarios HTTP/1.1
+
+###
+PUT http://localhost:9000/api/usuarios/635189a638c43c34eb1caf88 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nom_user":"jc_1970"   
+}
