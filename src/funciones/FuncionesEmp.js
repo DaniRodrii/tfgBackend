@@ -111,4 +111,10 @@ funcionesEmp.filtradoCargo = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesEmp.cargarEmps = (req, res) => {
+    empleado.find() 
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+};
+
 module.exports = funcionesEmp;

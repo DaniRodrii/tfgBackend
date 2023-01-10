@@ -10,5 +10,6 @@ router.get('/verEmps/:id', empleado.obtenerEmps);
 router.get('/:id', empleado.obtenerEmp);
 router.put('/:id', empleado.editarEmp);
 router.delete('/:id', empleado.borrarEmp);
+router.get('/', empleado.cargarEmps);
 
 module.exports = router; 
