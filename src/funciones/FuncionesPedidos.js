@@ -72,4 +72,10 @@ funcionesPedidos.filtrarPedido = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesPedidos.cargarPedidos = (req, res) => {
+    pedidos.find() 
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+};
+
 module.exports = funcionesPedidos;

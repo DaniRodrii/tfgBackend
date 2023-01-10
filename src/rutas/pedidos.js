@@ -9,5 +9,6 @@ router.get('/:id', pedido.obtenerPedido);
 router.get('/filtrado/:id', pedido.filtrarPedido);
 router.put('/:id', pedido.editarPedido);
 router.delete('/:id', pedido.borrarPedido);
+router.get('/', pedido.cargarPedidos);
 
 module.exports = router; 
