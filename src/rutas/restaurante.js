@@ -9,5 +9,6 @@ router.get('/:id', restaurante.obtenerRest);
 router.post('/filtrarDueno/:id', restaurante.filtradoDueno);
 router.put('/:id', restaurante.editarRest);
 router.delete('/:id', restaurante.borrarRest);
+router.get('/', restaurante.cargarRest);
 
 module.exports = router;   

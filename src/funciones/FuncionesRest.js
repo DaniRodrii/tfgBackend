@@ -139,6 +139,10 @@ funcionesRestaurante.filtradoDueno = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
  
-
+funcionesRestaurante.cargarRest = (req, res) => {
+    restaurante.find() 
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+};
 
 module.exports = funcionesRestaurante; 
