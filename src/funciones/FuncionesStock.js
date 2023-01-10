@@ -76,4 +76,10 @@ funcionesStock.filtradoNom = async (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesStock.cargarStocks = (req, res) => {
+    stock.find() 
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+};
+
 module.exports = funcionesStock; 
