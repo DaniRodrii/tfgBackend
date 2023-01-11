@@ -145,4 +145,39 @@ funcionesRestaurante.cargarRest = (req, res) => {
         .catch((error) => res.json({message: error}));
 };
 
+funcionesRestaurante.borrarRest = async (req, res) => {
+    let id=req.params.id;
+
+    let rest= await restaurante.findById(id);
+    
+
+    await restaurante.findByIdAndDelete(id); 
+
+        let empleados=[];
+        let productos=[];
+        let pedidos=[];
+        
+            empleados= await empleado.find({id_rest:id})
+            for(let j=0; j<empleados.length;j++){
+                let id_emp=empleados[j]._id;
+                await empleado.findByIdAndDelete(id_emp);
+            }
+    
+            productos= await stock.find({nom_rest:rest.nom_rest})
+            for(let k=0; k<productos.length;k++){
+                let id_prod=productos[k]._id;
+                await stock.findByIdAndDelete(id_prod);
+            }
+    
+            pedidos= await pedido.find({nom_rest:rest.nom_rest})
+            for(let l=0; l<pedidos.length;l++){
+                let id_pedidos=pedidos[l]._id;
+                await pedido.findByIdAndDelete(id_pedidos);
+            }
+    
+    
+            return res.status(200).json('ok');
+        
+}
+
 module.exports = funcionesRestaurante; 
