@@ -145,7 +145,7 @@ funcionesRestaurante.cargarRest = (req, res) => {
         .catch((error) => res.json({message: error}));
 };
 
-funcionesRestaurante.borrarRest = async (req, res) => {
+funcionesRestaurante.borrarRestAdmin = async (req, res) => {
     let id=req.params.id;
 
     let rest= await restaurante.findById(id);
