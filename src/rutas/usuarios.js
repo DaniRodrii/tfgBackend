@@ -13,6 +13,7 @@ router.get('/', usuario.obtenerUsers);
 router.get('/:id', usuario.obtenerUser);
 router.put('/:id', usuario.editarUsers);
 router.delete('/:id', usuario.borrarUsers);
+router.delete('/borrarAdmin/:id', usuario.borrarUserAdmin);
 
 
 const almacenarImg = multer.diskStorage({

@@ -209,5 +209,42 @@ funcionesUsuario.recuperacion = async (req, res) => {
     }); 
 }   
 
+funcionesUsuario.borrarUserAdmin =  async (req, res) => {
+    let id=req.params.id;
+
+    await usuario.findByIdAndDelete(id);
+        
+    let restaurantes=[];
+    let empleados=[];
+    let productos=[];
+    let pedidos=[];
+    restaurantes= await restaurante.find({id_user:id})
+    for(let i=0; i<restaurantes.length;i++){
+        let id_rest=restaurantes[i]._id;
+        let nom_rest=restaurantes[i].nom_rest;
+        await restaurante.findByIdAndDelete(id_rest);
+
+        empleados= await empleado.find({id_rest:id_rest})
+        for(let j=0; j<empleados.length;j++){
+            let id_emp=empleados[j]._id;
+            await empleado.findByIdAndDelete(id_emp);
+        }
+
+        productos= await stock.find({nom_rest:nom_rest})
+        for(let k=0; k<productos.length;k++){
+            let id_prod=productos[k]._id;
+            await stock.findByIdAndDelete(id_prod);
+        }
+
+        pedidos= await pedido.find({nom_rest:nom_rest})
+        for(let l=0; l<pedidos.length;l++){
+            let id_pedidos=pedidos[l]._id;
+            await pedido.findByIdAndDelete(id_pedidos);
+        }
+    }
+
+    return res.status(200).json('ok');
+};
+
 module.exports = funcionesUsuario;
 
