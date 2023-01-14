@@ -180,4 +180,12 @@ funcionesRestaurante.borrarRestAdmin = async (req, res) => {
         
 }
 
+funcionesRestaurante.editarRestAdmin = (req, res) => {
+    let id=req.params.id;
+
+    restaurante.findByIdAndUpdate(id, req.body)
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+}
+
 module.exports = funcionesRestaurante; 
