@@ -119,7 +119,7 @@ funcionesEmp.cargarEmps = (req, res) => {
 
 funcionesEmp.borrarEmpAdmin = (req, res) => {
     let id=req.params.id;
-
+    
     empleado.findByIdAndDelete(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));

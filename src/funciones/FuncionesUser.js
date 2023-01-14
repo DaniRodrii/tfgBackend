@@ -246,5 +246,14 @@ funcionesUsuario.borrarUserAdmin =  async (req, res) => {
     return res.status(200).json('ok');
 };
 
+funcionesUsuario.editarUsersAdmin = (req, res) => {
+    let id=req.params.id;
+
+    usuario.findByIdAndUpdate(id, req.body)
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+
+};
+
 module.exports = funcionesUsuario;
 

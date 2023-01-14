@@ -12,6 +12,7 @@ router.put('/recuContra/:id', usuario.recuperacion);
 router.get('/', usuario.obtenerUsers);
 router.get('/:id', usuario.obtenerUser);
 router.put('/:id', usuario.editarUsers);
+router.put('/admin/:id', usuario.editarUsersAdmin);
 router.delete('/:id', usuario.borrarUsers);
 router.delete('/borrarAdmin/:id', usuario.borrarUserAdmin);
 
