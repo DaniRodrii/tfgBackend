@@ -185,7 +185,7 @@ funcionesUsuario.recuContra = async (req, res) => {
 
     const token=jwt.sign({_id: user._id}, 'auth');
 
-    var mensaje = "Para recuperar su contraseña, pulse en el siguiente enlace http://localhost:4200/recuperarContrase%C3%B1a";
+    var mensaje = "Para recuperar su contraseña, pulse en el siguiente enlace http://gestaurante.net/recuperarContrase%C3%B1a";
     enviarMail(req.body.correoRecu, mensaje);
     return res.status(200).json(token);
 }
